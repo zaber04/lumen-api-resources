@@ -13,7 +13,7 @@ trait ApiResponseTrait
      * Respond with a JSON
      *
      */
-    public function jsonResponseWith(array $data, int $statusCode = Response::HTTP_OK): JsonResponse
+    public function jsonResponseWith(mixed $data, int $statusCode = Response::HTTP_OK): JsonResponse
     {
         $data['statusCode'] = $statusCode;
 
