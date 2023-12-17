@@ -28,16 +28,15 @@ class RefreshTokenMiddleware
     public function handle(Request $request, Closure $next)
     {
         try {
-            $user = JWTAuth::parseToken()->authenticate();
+            $loggedIn = JWTAuth::parseToken()->check();
         } catch (\Exception $e) {
             if ($e instanceof TokenInvalidException) {
                 $this->jsonResponseWith(['message' => 'This token is invalid. Please Login'], JsonResponse::HTTP_UNAUTHORIZED);
             } else if ($e instanceof TokenExpiredException) {
                 // If the token is expired, then it will be refreshed and added to the headers
                 try {
-                    $refreshed = JWTAuth::refresh(JWTAuth::getToken());
-                    $user      = JWTAuth::setToken($refreshed)->toUser();
-                    $request->headers->set('Authorization', 'Bearer ' . $refreshed);
+                    $refreshedToken = JWTAuth::refresh(JWTAuth::getToken());
+                    $request->headers->set('Authorization', 'Bearer ' . $refreshedToken);
                 } catch (\Exception $e) {
                     $this->jsonResponseWith(['message' => 'JWT-EXCEPTION!!! Token cannot be refreshed, please Login again'], JsonResponse::HTTP_EARLY_HINTS);
                 }

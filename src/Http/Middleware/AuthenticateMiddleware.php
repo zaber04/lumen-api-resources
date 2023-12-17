@@ -26,9 +26,9 @@ class AuthenticateMiddleware
     {
         try {
             // Check if the user is authenticated using JWT
-            $user = JWTAuth::parseToken()->authenticate();
+            $loggedIn = JWTAuth::parseToken()->check();
 
-            if (!$user) {
+            if (!$loggedIn) {
                 return $this->jsonResponseWith(['error' => 'Unauthorized Request. JWT failure'], JsonResponse::HTTP_UNAUTHORIZED);
             }
 

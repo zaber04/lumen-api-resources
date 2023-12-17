@@ -2,8 +2,6 @@
 
 namespace Zaber04\LumenApiResources\Traits;
 
-use Zaber04\LumenApiResources\Models\User;
-
 use Carbon\Carbon;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\JsonResponse;
