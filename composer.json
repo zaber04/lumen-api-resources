@@ -7,12 +7,6 @@
     "version": "1.0.0",
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/zaber04/lumen-api-resources.git"
-        }
-    ],
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.8",
@@ -38,10 +32,7 @@
             "Zaber04\\LumenApiResources\\": "app/",
             "Zaber04\\LumenApiResources\\Database\\Factories\\": "database/factories/",
             "Zaber04\\LumenApiResources\\Database\\Seeders\\": "database/seeders/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "scripts": {
         "post-root-package-install": [
