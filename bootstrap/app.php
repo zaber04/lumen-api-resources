@@ -23,9 +23,9 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
-// $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -40,12 +40,12 @@ $app = new Laravel\Lumen\Application(
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    Zaber04\LumenApiResources\Exceptions\Handler::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
+    Zaber04\LumenApiResources\Console\Kernel::class
 );
 
 /*
@@ -91,9 +91,9 @@ $app->configure('app');
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(Zaber04\LumenApiResources\Providers\AppServiceProvider::class);
+// $app->register(Zaber04\LumenApiResources\Providers\AuthServiceProvider::class);
+// $app->register(Zaber04\LumenApiResources\Providers\EventServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ $app->configure('app');
 */
 
 $app->router->group([
-    'namespace' => 'App\Http\Controllers',
+    'namespace' => 'Zaber04\LumenApiResources\Http\Controllers',
 ], function ($router) {
     require __DIR__.'/../routes/web.php';
 });

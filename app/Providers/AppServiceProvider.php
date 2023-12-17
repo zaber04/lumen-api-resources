@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Zaber04\LumenApiResources\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -37,11 +37,6 @@
             "src/helpers.php"
         ]
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Zaber04\\LumenApiResources\\Tests\\": "tests/"
-        }
-    },
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

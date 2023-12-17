@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Zaber04\LumenApiResources\Database\Factories;
 
-use App\Models\User;
+use Zaber04\LumenApiResources\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserFactory extends Factory
