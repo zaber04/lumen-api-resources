@@ -106,10 +106,4 @@ $app->configure('app');
 |
 */
 
-$app->router->group([
-    'namespace' => 'Zaber04\LumenApiResources\Http\Controllers',
-], function ($router) {
-    require __DIR__.'/../routes/web.php';
-});
-
 return $app;
