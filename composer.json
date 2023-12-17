@@ -10,7 +10,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:zaber04/lumen-api-resources.git"
+            "url": "https://github.com/zaber04/lumen-api-resources.git"
         }
     ],
     "require": {

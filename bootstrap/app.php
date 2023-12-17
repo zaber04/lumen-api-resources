@@ -91,7 +91,7 @@ $app->configure('app');
 |
 */
 
-$app->register(Zaber04\LumenApiResources\Providers\AppServiceProvider::class);
+// $app->register(Zaber04\LumenApiResources\Providers\AppServiceProvider::class);
 // $app->register(Zaber04\LumenApiResources\Providers\AuthServiceProvider::class);
 // $app->register(Zaber04\LumenApiResources\Providers\EventServiceProvider::class);
 
