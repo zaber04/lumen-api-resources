@@ -22,7 +22,7 @@ trait TokenTrait
      *
      * DOES NOT HANDLE exception
      */
-    private function generateToken(User $user, string $session_id): string {
+    private function generateToken($user, string $session_id): string {
         // Include additional claims during JWT creation
         try {
             $user['session_id'] =  $session_id;

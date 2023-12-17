@@ -29,9 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Zaber04\\LumenApiResources\\": "app/",
-            "Zaber04\\LumenApiResources\\Database\\Factories\\": "database/factories/",
-            "Zaber04\\LumenApiResources\\Database\\Seeders\\": "database/seeders/"
+            "Zaber04\\LumenApiResources\\": "src/"
         }
     },
     "scripts": {
