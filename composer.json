@@ -1,0 +1,55 @@
+{
+    "name": "zaber04/lumen-api-resources",
+    "description": "Lumen API Resources Package",
+    "keywords": ["lumen", "api", "resources"],
+    "license": "MIT",
+    "type": "library",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/console": "*",
+        "illuminate/container": "*",
+        "illuminate/events": "*",
+        "illuminate/filesystem": "*",
+        "illuminate/routing": "*",
+        "illuminate/support": "*",
+        "illuminate/translation": "*",
+        "laravel/lumen-framework": "^10.0",
+        "laravel/tinker": "^2.8",
+        "league/flysystem": "^3.23",
+        "tymon/jwt-auth": "^2.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zaber04\\LumenApiResources\\": "app/",
+            "Zaber04\\LumenApiResources\\Database\\Factories\\": "database/factories/",
+            "Zaber04\\LumenApiResources\\Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zaber04\\LumenApiResources\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
