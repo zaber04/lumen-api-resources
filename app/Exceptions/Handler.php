@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Exceptions;
+namespace Zaber04\LumenApiResources\Exceptions;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -49,6 +53,26 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+        if ($exception instanceof HttpException) {
+            return $this->renderHttpException($exception);
+        }
+
         return parent::render($request, $exception);
+    }
+
+    /**
+     * Render the given HttpException.
+     *
+     * @param \Symfony\Component\HttpKernel\Exception\HttpException $e
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function renderHttpException(HttpException $e)
+    {
+        $status  = $e->getStatusCode();
+        $message = $e->getMessage() ?: JsonResponse::$statusTexts[$status];
+
+        return response()->json(['error' => $message, 'statusCode' => $status, 'success' => false], $status);
     }
 }

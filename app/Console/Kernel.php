@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace Zaber04\LumenApiResources\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \Zaber04\LumenApiResources\Console\Commands\CreateDatabaseCommand::class,
+        \Zaber04\LumenApiResources\Console\Commands\VendorPublishCommand::class
     ];
 
     /**
