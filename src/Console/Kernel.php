@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \Zaber04\LumenApiResources\Console\Commands\CreateDatabaseCommand::class,
+        \Zaber04\LumenApiResources\Console\Commands\MakeDatabaseCommand::class,
+        \Zaber04\LumenApiResources\Console\Commands\RouteListCommand::class,
         \Zaber04\LumenApiResources\Console\Commands\VendorPublishCommand::class
     ];
 

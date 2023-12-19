@@ -5,7 +5,7 @@ namespace Zaber04\LumenApiResources\Console\Commands;
 use Illuminate\Console\Command;
 use PDO;
 
-class CreateDatabaseCommand extends Command
+class MakeDatabaseCommand extends Command
 {
     /**
      * The name and signature of the console command.
