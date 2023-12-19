@@ -5,8 +5,6 @@ namespace Zaber04\LumenApiResources\Console\Commands;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Illuminate\Support\Arr;
-use Laravel\Lumen\Application;
-use Laravel\Lumen\Routing\Router;
 
 class RouteListCommand extends Command
 {
@@ -55,11 +53,7 @@ class RouteListCommand extends Command
      */
     protected function getRoutes()
     {
-        // $routeCollection = property_exists($this->laravel, 'router')
-        //     ? $this->laravel->router->getRoutes()
-        //     : $this->laravel->getRoutes();
-
-            $routeCollection = $this->getLumenRouter()->getRoutes();
+        $routeCollection = app()->router->getRoutes();
         $rows = [];
 
         foreach ($routeCollection as $route) {
@@ -117,7 +111,7 @@ class RouteListCommand extends Command
             $parts = explode('@', $action['uses']);
             return end($parts) ?: 'METHOD NOT FOUND';
         }
-    
+
         return 'Closure';
     }
 
@@ -129,9 +123,8 @@ class RouteListCommand extends Command
      */
     protected function getMiddleware(array $action)
     {
-        return is_array($action['middleware'])
-            ? implode(", ", $action['middleware'])
-            : $action['middleware'] ?? '';
+        return isset($action['middleware'])
+            ? (is_array($action['middleware']) ? implode(", ", $action['middleware']) : $action['middleware']) : '';
     }
 
     /**
@@ -213,13 +206,5 @@ class RouteListCommand extends Command
                 'Only show verb, path, controller and action columns',
             ],
         ];
-    }
-
-    protected function getLumenRouter(): Router
-    {
-        /** @var Application $app */
-        $app = $this->getApplication();
-        
-        return $app->router;
     }
 }
