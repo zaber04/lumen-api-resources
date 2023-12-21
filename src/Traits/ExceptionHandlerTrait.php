@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 
 trait ExceptionHandlerTrait
 {
@@ -39,7 +40,7 @@ trait ExceptionHandlerTrait
             $errorLogData['error'] = $exception->validator->errors();
         } elseif ($exception instanceof ModelNotFoundException) {
             $errorLogData['statusCode'] = JsonResponse::HTTP_NOT_FOUND;
-        } elseif ($exception instanceof ModelNotFoundException) {
+        } elseif ($exception instanceof QueryException) {
             $errorLogData['statusCode'] = JsonResponse::HTTP_INTERNAL_SERVER_ERROR;
         }
 
